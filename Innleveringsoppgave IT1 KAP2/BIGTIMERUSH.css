@@ -1,0 +1,111 @@
+/*background image gir meg muligheten til å bruke hvilken som helst bilde jeg finner på internett og bruke det som bakgrunn*/ 
+body{
+    background-image: url(https://www.dafont.com/forum/attach/orig/1/3/13556.png);
+}
+
+/*Koden til utseende av menyet. Linear gradient er en blanding av farger jeg ønsker.*/
+.meny {
+    background-color: #333;
+    overflow: hidden;
+
+   background-image: linear-gradient(red, white, rgb(8, 8, 8));
+   ;
+  overflow: hidden;
+  }
+  
+  /* Dette er koden til hver av linkene. */
+  .meny a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-align: center;
+    float: left;
+    color: rgb(63, 63, 145);
+  }
+
+  
+  /* Endrer bakgrunns farge og skrift farge når man holder over musen for linken.*/
+  .meny a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /*Endres bakgrunnsfarge når det blir klikket*/
+  .meny a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  /* for mange av kodene nedenfor bruker jeg margin-bottom for å bitte litt mellomrom for hver av tekstene*/
+  #Karriere{
+    border: 4px;
+    margin: auto 10px;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  #Musikkartisteri{
+    border: 4px;
+    margin: auto 10px;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  /*Bruker samme kode, eneste forskjell er at jeg har tilpasset bredden til innholdet*/
+  #Medlemmer {
+    border: 4px;
+    margin: auto 10px;
+    margin-left: 40px;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 20px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+#discography{
+  border: 4px;
+  margin: auto 10px;
+  margin-left: 40px;
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 20px; 
+  width: 400px;
+  margin-bottom: 20px;
+ 
+}
+
+/*Lager en border for hver th og td*/
+th, td {
+  border: 1px solid #deacac;
+  padding: 8px;
+}
+
+/*gir alle tr som står direkte under thead koden for nedenfor.*/
+thead > tr {
+  background-color: #3f4259;
+  color: #f6f7fa;
+}
+  
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Denne klassen her har jeg til hvert av medlemmene sin biografi*/
+.biografi{
+  border: 4px;
+  margin: auto 10px;
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
