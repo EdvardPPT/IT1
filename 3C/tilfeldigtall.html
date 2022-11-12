@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var tilfeldigTall;
+        tilfeldigTall = (Math.random() * 80) + 1;
+        var tilfeldigTallHelt = parseInt(tilfeldigTall);
+        console.log(tilfeldigTallHelt);
+
+
+        if(tilfeldigTallHelt <= 14){
+            document.write("ung")
+        }
+        else if(tilfeldigTallHelt <= 20){
+            document.write("ungdom")
+        }
+        else if(tilfeldigTallHelt <= 62){
+            document.write("voksen")
+        }
+        else if (tilfeldigTallHelt == 67){
+            document.write("Du er jaman meg blitt pensjonist i år")
+        }
+        else if(tilfeldigTallHelt <= 75){
+            document.write("eldre")
+        }
+        else{
+            document.write("gammel")
+        }
+
+        //&& betyr samtidig sånn
+        //|| betyr eller
+        // | betyr ikke
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grensesnitt</title>
+</head>
+<body>
+    <h1>Loddtrekning</h1>
+    <input id="inputAntallTall" placeholder="Antall solgte" type="Number">
+    <input id= "inputMittValg" placeholder="Mitt valg er" type="Number">
+    <p id="btnVelgVinner">Klikk på meg for resultat</p>
+    <h1 id="txtResultat"></h1>
+    
+
+
+
+    
+    <script>
+
+
+
+        inputAntallTall = document.getElementById("inputAntallTall");
+        btnVelgVinner = document.getElementById("btnVelgVinner");
+        inputMittValg = document.getElementById("inputMittValg");
+        txtResulat = document.getElementbyID("txtResulat");
+        antallTall = Number(inputAntallTall.value);
+
+        var antallTall;
+        var mittValg;
+        var vinnerLodd;
+
+        btnVelgVinner.onclick = function() {
+            antallTall = Number(inputAntallTall.value);
+            mittValg = Number(inputMittValg.value);
+            vinnerLodd = parseInt(Math.random()*antallTall+1);
+        }
+        if(dittvalg==vinnerLodd){
+            txtResulat.innerHTML = "Du vant";
+
+        }
+        else{
+            txtResulat.innerHTML = "Desverre så tapte du";
+        }
+
+
+       // dittValg = Number(prompt("Hvilket tall velger du?"))
+
+       // vinnerLodd = (parseInt(Math.random()*antallTall)+1)
+        //document.write("vinnerloddet er:" + vinnerLodd)
+
+
+
+
+    </script>
+
+</body>
+</html>

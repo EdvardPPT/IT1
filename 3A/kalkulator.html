@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let førstetall = Number (prompt("oppgi et tall å summere"));
+        let andretall = Number (prompt("oppgi et annet tall å summere"));
+        let operator = prompt("velg +, -, : eller *")
+
+        if(operator == "+"){
+            let sum = (førstetall + andretall);
+            document.write("svaret blir " + sum);
+        }
+        else if(operator== "-"){
+            let sum = (førstetall - andretall);
+            document.write("svaret blir " + sum);
+        }
+        else if(operator== ":"){
+            let sum = (førstetall/andretall )
+            document.write("svaret blir " + sum);
+        }
+        else if(operator== "*"){
+            let sum=(førstetall*andretall)
+            document.write("svaret blir" + sum);
+        }
+        else {
+            document.write("Du skrev ikke en operator")
+        }
+
+        
+    
+
+    </script>
+</body>
+</html>
