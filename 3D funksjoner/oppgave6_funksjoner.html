@@ -8,17 +8,17 @@
 </head>
 <body>
     <script>
-        /*Oppgave 2*/
-
-
-        let a = Number(prompt("hva er parameteren til kvadratet?"));
-        let b= Math.floor(Math.random()*10)
-        function kvadrat (a,b){
-            document.write(a+b)
+        function arealRektangel (a, b){
+            if (a, b > 0){
+            document.write(a*b)
+            }
+            else{
+            document.write("lengden eller bredden er null eller negativt")
+            }
+        
         }
-        kvadrat(a, b);
-
+        arealRektangel(6, 3);
+        
     </script>
-
 </body>
 </html>
