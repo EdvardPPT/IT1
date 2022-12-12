@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatzy</title>
+
+    <style>
+
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #000000;
+  padding: 8px;
+}
+thead > tr {
+  background-color: #232c71;
+  color: #f6f7fa;
+}
+tbody > tr:nth-child(odd) {
+  background-color: #9da0a7;
+} 
+
+body {
+  background-color: #f5f5f5; 
+  font-family: Georgia, serif; 
+}
+#hoved {         
+  margin: 20px;         
+  padding: 20px;	             
+  background-color: white; 	 
+  border: 1px solid #cccccc;
+}
+h1 {
+  font-family: Arial, sans-serif; 
+}
+    </style>
+</head>
+
+<body>
+    <button id="btnTerning1">0</button>
+    <button id="btnTerning2">0</button>
+    <button id="btnTerning3">0</button>
+    <button id="btnTerning4">0</button>
+    <button id="btnTerning5">0</button>
+    <input id="HoldT1" type="checkbox">
+    <input id="HoldT2" type="checkbox">
+    <input id="HoldT3" type="checkbox">
+    <input id="HoldT4" type="checkbox">
+    <input id="HoldT5" type="checkbox">
+
+    <button id="btnKastAlle">Kast alle</button>
+
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4">yatzy</th>
+            </tr>
+            <tr>
+                <th>spillere</th>
+                <th>P1</th>
+                <th>P2</th>
+                <th>P3</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Enere</td>
+                <td id="P1Enere"></td>
+                <td id="P2Enere"></td>
+                <td id="P3Enere"></td>
+            </tr>
+
+            <tr>
+                <td>Toere</td>
+                <td id="P1Toere"></td>
+                <td id="P2Toere"></td>
+                <td id="P3Toere"></td>
+            </tr>
+
+            <tr>
+                <td>Treere</td>
+                <td id="P1Treere"></td>
+                <td id="P2Treere"></td>
+                <td id="P3Treere"></td>
+            </tr>
+
+            <tr>
+                <td>Firere</td>
+                <td id="P1Firere"></td>
+                <td id="P2Firere"></td>
+                <td id="P3Firere"></td>
+            </tr>
+
+            <tr>
+                <td>Femere</td>
+                <td id="P1Femere"></td>
+                <td id="P2Femere"></td>
+                <td id="P3Femere"></td>
+            </tr>
+
+            <tr>
+                <td>Seksere</td>
+                <td id="P1Seksere"></td>
+                <td id="P2Seksere"></td>
+                <td id="P3Seksere"></td>
+            </tr>
+
+            <tr>
+                <td>Sum</td>
+                <td id="spiller1Sum"></td>
+                <td id="spiller2Sum"></td>
+                <td id="spiller3Sum"></td>
+            </tr>
+
+            <tr>
+                <td>Bonus</td>
+                <td id="BonusTabellP1"></td>
+                <td id="BonusTabellP2"></td>
+                <td id="BonusTabellP3"></td>
+            </tr>
+
+            <tr>
+                <td>Ett par</td>
+                <td id="oneDuplicateP1"></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>To par</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Tre like</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Liten straight</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Stor straight</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Hus</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Sjanse</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Yatzy</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+
+                <tr>
+                    <td>Total sum</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+
+        </tbody>
+    </table>
+    <script>
+        let btnTerning1 = document.getElementById("btnTerning1");
+        let btnTerning2 = document.getElementById("btnTerning2");
+        let btnTerning3 = document.getElementById("btnTerning3");
+        let btnTerning4 = document.getElementById("btnTerning4");
+        let btnTerning5 = document.getElementById("btnTerning5");
+        let btnKastAlle = document.getElementById("btnKastAlle");
+        let HoldT1 = document.getElementById("HoldT1");
+        let HoldT2 = document.getElementById("HoldT2");
+        let HoldT3 = document.getElementById("HoldT3");
+        let HoldT4 = document.getElementById("HoldT4");
+        let HoldT5 = document.getElementById("HoldT5");
+
+        let P1Enere = document.getElementById("P1Enere");
+        let P2Enere = document.getElementById("P2Enere");
+        let P3Enere = document.getElementById("P3Enere");
+
+        let P1Toere = document.getElementById("P1Toere");
+        let P2Toere = document.getElementById("P2Toere");
+        let P3Toere = document.getElementById("P3Toere");
+
+        let P1Treere = document.getElementById("P1Treere");
+        let P2Treere = document.getElementById("P2Treere");
+        let P3Treere = document.getElementById("P3Treere");
+
+        let P1Firere = document.getElementById("P1Firere");
+        let P2Firere = document.getElementById("P2Firere");    
+        let P3Firere = document.getElementById("P3Firere");
+
+        let P1Femere = document.getElementById("P1Femere");
+        let P2Femere = document.getElementById("P2Femere");
+        let P3Femere = document.getElementById("P3Femere");
+
+        let P1Seksere = document.getElementById("P1Seksere");
+        let P2Seksere = document.getElementById("P2Seksere");
+        let P3Seksere = document.getElementById("P3Seksere");
+
+        let spiller1Sum =document.getElementById("spiller1Sum");
+        let spiller2Sum =document.getElementById("spiller2Sum");
+        let spiller3Sum =document.getElementById("spiller3Sum");
+
+        let BonusTabellP1 = document.getElementById("BonusTabellP1")
+        let BonusTabellP2 = document.getElementById("BonusTabellP2")
+        let BonusTabellP3 = document.getElementById("BonusTabellP3")
+
+
+
+        let ResultatP1Enere;
+        let ResultatP2Enere;
+        let ResultatP3Enere;
+
+        let ResulratP1Toere;
+        let ResultatP2Toere;
+        let ResultatP3Toere;
+
+        let ResultatP1Treere;
+        let ResultatP2Treere;
+        let ResultatP3Treere;
+
+        let ResultatP1Firere;
+        let ResultatP2Firere;
+        let ResultatP3Firere;
+
+        let ResultatP1Femere;
+        let ResultatP2Femere;
+        let ResultatP3Femere;
+
+        let ResultatP1Seksere;
+        let ResultatP2Seksere;
+        let ResultatP3Seksere;
+
+        let oneDuplicateP1 = document.getElementById("oneDuplicateP1")
+
+
+
+        let Terning1;
+        let Terning2;
+        let Terning3;
+        let Terning4;
+        let Terning5;
+
+        let terningArray = [Terning1, Terning2, Terning3,Terning4, Terning5 ]
+
+
+
+
+
+
+        function kastAlle() {
+            return kastTerning1() + kastTerning2() + kastTerning3() + kastTerning4() + kastTerning5();
+        }
+        btnKastAlle.onclick = kastAlle;
+
+
+        function kastTerning1() {
+            if (HoldT1.checked == false) {
+                Terning1 = parseInt(Math.random() * 6) + 1
+                btnTerning1.innerHTML = Terning1
+            }
+        }
+
+
+        function kastTerning2() {
+            if (HoldT2.checked == false) {
+                Terning2 = parseInt(Math.random() * 6) + 1
+                btnTerning2.innerHTML = Terning2
+            }
+        }
+
+        function kastTerning3() {
+            if (HoldT3.checked == false) {
+                Terning3 = parseInt(Math.random() * 6) + 1
+                btnTerning3.innerHTML = Terning3
+            }
+        }
+
+        function kastTerning4() {
+            if (HoldT4.checked == false) {
+                Terning4 = parseInt(Math.random() * 6) + 1
+                btnTerning4.innerHTML = Terning4
+            }
+        }
+        function kastTerning5() {
+            if (HoldT5.checked == false) {
+                Terning5 = parseInt(Math.random() * 6) + 1
+                btnTerning5.innerHTML = Terning5
+            }
+        }
+
+        // Denne delen av programmet stopper opp hele programmet
+        function P1ResultatEnere(){
+            ResultatP1Enere=0
+            let P1EnereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P1EnereArray.length; i++) {
+                if (P1EnereArray[i]==1){
+                    ResultatP1Enere+= P1EnereArray[i];
+                }
+            }
+
+            P1Enere.innerHTML = ResultatP1Enere
+        }
+        P1Enere.onclick = P1ResultatEnere;
+
+        function P2ResultatEnere(){
+            ResultatP2Enere=0
+            let P2EnereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P2EnereArray.length; i++) {
+                if (P2EnereArray[i]==1){
+                    ResultatP2Enere+= P2EnereArray[i];
+                }
+            }
+
+            P2Enere.innerHTML = ResultatP2Enere
+        }
+        P2Enere.onclick = P2ResultatEnere;
+
+        function P3ResultatEnere(){
+            ResultatP3Enere=0
+            let P3EnereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P3EnereArray.length; i++) {
+                if (P3EnereArray[i]==1){
+                    ResultatP3Enere+= P3EnereArray[i];
+                }
+            }
+
+            P3Enere.innerHTML = ResultatP3Enere
+        }
+        P3Enere.onclick = P3ResultatEnere;
+
+        function P1ResultatToere(){
+            ResultatP1Toere=0
+            let P1ToereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P1ToereArray.length; i++) {
+                if (P1ToereArray[i]==2){
+                    ResultatP1Toere+= P1ToereArray[i];
+                }
+            }
+
+            P1Toere.innerHTML = ResultatP1Toere
+        }
+        P1Toere.onclick = P1ResultatToere;
+
+        function P2ResultatToere(){
+            ResultatP2Toere=0
+            let P2ToereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P2ToereArray.length; i++) {
+                if (P2ToereArray[i]==2){
+                    ResultatP2Toere+= P2ToereArray[i];
+                }
+            }
+
+            P2Toere.innerHTML = ResultatP2Toere
+        }
+        P2Toere.onclick = P2ResultatToere;
+
+        function P3ResultatToere(){
+            ResultatP3Toere=0
+            let P3ToereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P3ToereArray.length; i++) {
+                if (P3ToereArray[i]==2){
+                    ResultatP3Toere+= P3ToereArray[i];
+                }
+            }
+
+            P3Toere.innerHTML = ResultatP3Toere
+        }
+        P3Toere.onclick = P3ResultatToere;
+
+        function P1ResultatTreere(){
+            ResultatP1Treere=0
+            let P1TreereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P1TreereArray.length; i++) {
+                if (P1TreereArray[i]==3){
+                    ResultatP1Treere+= P1TreereArray[i];
+                }
+            }
+
+            P1Treere.innerHTML = ResultatP1Treere
+        }
+        P1Treere.onclick = P1ResultatTreere;
+
+        function P2ResultatTreere(){
+            ResultatP2Treere=0
+            let P2TreereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P2TreereArray.length; i++) {
+                if (P2TreereArray[i]==3){
+                    ResultatP2Treere+= P2TreereArray[i];
+                }
+            }
+
+            P2Treere.innerHTML = ResultatP2Treere
+        }
+        P2Treere.onclick = P2ResultatTreere;
+
+        function P3ResultatTreere(){
+            ResultatP3Treere=0
+            let P3TreereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P3TreereArray.length; i++) {
+                if (P3TreereArray[i]==3){
+                    ResultatP3Treere+= P3TreereArray[i];
+                }
+            }
+   
+            P3Treere.innerHTML = ResultatP3Treere
+        }
+        P3Treere.onclick = P3ResultatTreere;
+
+        function P1ResultatFirere(){
+            ResultatP1Firere=0
+            let P1FirereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P1FirereArray.length; i++) {
+                if (P1FirereArray[i]==4){
+                    ResultatP1Firere+= P1FirereArray[i];
+                }
+            }
+
+            P1Firere.innerHTML = ResultatP1Firere
+        }
+        P1Firere.onclick = P1ResultatFirere;
+
+        function P2ResultatFirere(){
+            ResultatP2Firere=0
+            let P2FirereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P2FirereArray.length; i++) {
+                if (P2FirereArray[i]==4){
+                    ResultatP2Firere+= P2FirereArray[i];
+                }
+            }
+
+            P2Firere.innerHTML = ResultatP2Firere
+        }
+        P2Firere.onclick = P2ResultatFirere;
+
+        function P3ResultatFirere(){
+            ResultatP3Firere=0
+            let P3FirereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P3FirereArray.length; i++) {
+                if (P3FirereArray[i]==4){
+                    ResultatP3Firere+= P3FirereArray[i];
+                }
+            }
+
+            P3Firere.innerHTML = ResultatP3Firere
+        }
+        P3Firere.onclick = P3ResultatFirere;
+
+        function P1ResultatFemere(){
+            ResultatP1Femere=0
+            let P1FemereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P1FemereArray.length; i++) {
+                if (P1FemereArray[i]==5){
+                    ResultatP1Femere+= P1FemereArray[i];
+                }
+            }
+
+            P1Femere.innerHTML = ResultatP1Femere
+        }
+        P1Femere.onclick = P1ResultatFemere;
+
+        function P2ResultatFemere(){
+            ResultatP2Femere=0
+            let P2FemereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P2FemereArray.length; i++) {
+                if (P2FemereArray[i]==5){
+                    ResultatP2Femere+= P2FemereArray[i];
+                }
+            }
+
+            P2Femere.innerHTML = ResultatP2Femere
+        }
+        P2Femere.onclick = P2ResultatFemere;
+
+        function P3ResultatFemere(){
+            ResultatP3Femere=0
+            let P3FemereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P3FemereArray.length; i++) {
+                if (P3FemereArray[i]==5){
+                    ResultatP3Femere+= P3FemereArray[i];
+                }
+            }
+
+            P3Femere.innerHTML = ResultatP3Femere
+        }
+        P3Femere.onclick = P3ResultatFemere;
+
+        function P1ResultatSeksere(){
+            ResultatP1Seksere=0
+            let P1SeksereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P1SeksereArray.length; i++) {
+                if (P1SeksereArray[i]==6){
+                    ResultatP1Seksere+= P1SeksereArray[i];
+                }
+            }
+
+            P1Seksere.innerHTML = ResultatP1Seksere
+        }
+        P1Seksere.onclick = P1ResultatSeksere;
+
+        function P2ResultatSeksere(){
+            ResultatP2Seksere=0
+            let P2SeksereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P2SeksereArray.length; i++) {
+                if (P2SeksereArray[i]==6){
+                    ResultatP2Seksere+= P2SeksereArray[i];
+                }
+            }
+
+            P2Seksere.innerHTML = ResultatP2Seksere
+        }
+        P2Seksere.onclick = P2ResultatSeksere;
+
+        function P3ResultatSeksere(){
+            ResultatP3Seksere=0
+            let P3SeksereArray = [Terning1, Terning2, Terning3, Terning4, Terning5]
+            for (let i = 0; i < P3SeksereArray.length; i++) {
+                if (P3SeksereArray[i]==6){
+                    ResultatP3Seksere+= P3SeksereArray[i];
+                }
+            }
+
+            P3Seksere.innerHTML = ResultatP3Seksere
+        }
+        P3Seksere.onclick = P3ResultatSeksere;
+
+
+//Dette er koden til summen til hvert spiller//
+       function P1Sum(){
+            sumP1 = ResultatP1Enere + ResultatP1Toere + ResultatP1Treere + ResultatP1Firere + ResultatP1Femere + ResultatP1Seksere
+            spiller1Sum.innerHTML = sumP1
+        }
+        spiller1Sum.onclick = P1Sum;
+
+        function P2Sum(){
+            sumP2 = ResultatP2Enere + ResultatP2Toere + ResultatP2Treere + ResultatP2Firere + ResultatP2Femere + ResultatP2Seksere
+            spiller2Sum.innerHTML = sumP2
+        }
+        spiller2Sum.onclick = P2Sum;
+
+        function P3Sum(){
+            sumP3 = ResultatP3Enere + ResultatP3Toere + ResultatP3Treere + ResultatP3Firere + ResultatP3Femere + ResultatP3Seksere
+            spiller3Sum.innerHTML = sumP3
+        }
+        spiller3Sum.onclick = P3Sum;
+
+        function P1Bonus(){
+            let bonusP1=50
+            let bonusP1Taper=0
+            if(sumP1 > 63){
+                BonusTabellP1.innerHTML = bonusP1
+            }
+            else{
+                BonusTabellP1.innerHTML = bonusP1Taper
+            }
+        }
+        BonusTabellP1.onclick = P1Bonus;
+        
+        function P2Bonus(){
+            let bonusP2=50
+            let bonusP2Taper=0
+            if(sumP2 > 63){
+                BonusTabellP2.innerHTML = bonusP2
+            }
+            else{
+                BonusTabellP2.innerHTML = bonusP2Taper
+            }
+        }
+        BonusTabellP2.onclick = P2Bonus;
+
+        function P3Bonus(){
+            let bonusP3=50
+            let bonusP3Taper=0
+            if(sumP3 > 63){
+                BonusTabellP3.innerHTML = bonusP3
+            }
+            else{
+                BonusTabellP3.innerHTML = bonusP3Taper
+            }
+        }
+        BonusTabellP3.onclick = P3Bonus;
+
+        function ettParP1(terningArray){
+            let alreadySeen =[];
+
+            for(let i = 0; i < terningArray.length; i++){
+                let verdi = terningArray[i];
+                if(alreadySeen.indexOf(verdi) !== -1){
+                    oneDuplicateP1.innerHTML = terningArray[i];
+                }
+                alreadySeen.push(verdi);
+            }
+
+        }
+        oneDuplicateP1.onclick = ettParP1
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

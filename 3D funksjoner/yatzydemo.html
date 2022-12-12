@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div></div>
+
+<button id="btnDiceRoll">Kast</button>
+<button onclick="Stop1()">Stop</button>
+
+<input id="StoppT1" type="checkbox" check="true">
+<input id="StoppT2" type="checkbox" check="true">
+
+
+   <script>
+    btnDiceRoll= document.getElementById("btnDiceRoll");
+    holdT1= document.getElementById("StoppT1")
+    holdT2= document.getElementById("StoppT1")
+
+
+    function rollDice(){
+    let Terning1 = parseInt(Math.random()*6) + 1
+    let Terning2 = parseInt(Math.random()*6) + 1
+    let Terning3= parseInt(Math.random()*6) + 1
+    let Terning4 = parseInt(Math.random()*6) + 1
+    let Terning5= parseInt(Math.random()*6) + 1
+    btnDiceRoll.innerHTML= Terning1 +" "+ Terning2 +" "+ Terning3 +" "+ Terning4 +" "+ Terning5
+
+    if(holdT1.checked == "false"){
+        
+        
+
+    }
+   }
+    btnDiceRoll.onclick= rollDice;
+
+
+
+   
+       
+
+    
+
+
+
+
+
+
+   </script> 
+</body>
+</html>
