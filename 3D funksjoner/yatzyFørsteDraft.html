@@ -765,23 +765,98 @@
         }
         BonusTabellP3.onclick = P3Bonus;
 
-        function DuplicateP1() {
-            alert("Denne delen av programmen funker ikke")
+
+//Funksjonen sjekker om to like for hver av terningene. Om det stemmer med if-vilkårene, deretter trenger vi bare å gange verdien til Terning med 2 fordi de skal være like. Jeg får bare ikke til å ta den høyeste verdien av de to parrene
+        function ettParP1() {
+            if (Terning1 == Terning2 || Terning1 == Terning3 || Terning1 == Terning4 || Terning1 == Terning5) {
+                Terning1 = Terning1 * 2
+                oneDuplicateP1.innerHTML = Terning1
+            }
+            if (Terning2 == Terning3 || Terning2 == Terning4 || Terning2 == Terning5) {
+                Terning2 = Terning2 * 2
+                oneDuplicateP1.innerHTML = Terning2
+            }
+            if (Terning3 == Terning4 || Terning3 == Terning5) {
+                Terning3 = Terning3 * 2
+                oneDuplicateP1.innerHTML = Terning3
+            }
+            if (Terning4 == Terning5) {
+                Terning4 == Terning4 * 2
+                oneDuplicateP1.innerHTML = Terning4
+
+            }
         }
-        oneDuplicateP1.onclick = DuplicateP1
+        oneDuplicateP1.onclick = ettParP1
 
-        function DuplicateP2() {
-            alert("Denne delen av programmen funker ikke")
+        function ettParP2() {
+            if (Terning1 == Terning2 || Terning1 == Terning3 || Terning1 == Terning4 || Terning1 == Terning5) {
+                Terning1 = Terning1 * 2
+                oneDuplicateP2.innerHTML = Terning1
+            }
+            if (Terning2 == Terning3 || Terning2 == Terning4 || Terning2 == Terning5) {
+                Terning2 = Terning2 * 2
+                oneDuplicateP2.innerHTML = Terning2
+            }
+            if (Terning3 == Terning4 || Terning3 == Terning5) {
+                Terning3 = Terning3 * 2
+                oneDuplicateP2.innerHTML = Terning3
+            }
+            if (terning4 == Terning5) {
+                Terning4 = Terning4 * 2
+                oneDuplicateP2.innerHTML = Terning4
+
+            }
+
         }
-        oneDuplicateP2.onclick = DuplicateP2
+        oneDuplicateP2.onclick = ettParP2
 
-        function DuplicateP3() {
-            alert("Denne delen av programmen funker ikke")
+        function ettParP3() {
+            if (Terning1 == Terning2 || Terning1 == Terning3 || Terning1 == Terning4 || Terning1 == Terning5) {
+                Terning1 = Terning1 * 2
+                oneDuplicateP3.innerHTML = Terning1
+            }
+            if (Terning2 == Terning3 || Terning2 == Terning4 || Terning2 == Terning5) {
+                Terning2 = Terning2 * 2
+                oneDuplicateP3.innerHTML = Terning2
+            }
+            if (Terning3 == Terning4 || Terning3 == Terning5) {
+                Terning3 = Terning3 * 2
+                oneDuplicateP3.innerHTML = Terning3
+            }
+            if (terning4 == Terning5) {
+                Terning4 = Terning4 * 2
+                oneDuplicateP3.innerHTML = Terning4
+
+            }
+
+
         }
-        oneDuplicateP3.onclick = DuplicateP3
+        oneDuplicateP3.onclick = ettParP3
 
+        
 
+        /* IKke ferdig
+        function toParP1() {
+            if (Terning1 == Terning2 && Terning1 == Terning3 || Terning1 == Terning2 && Terning1 == Terning4 || Terning1 == Terning2 && Terning1 == Terning5 || Terning1 == Terning3 && Terning1 == Terning4) {
+                Terning1 = Terning1 * 2
+                oneDuplicateP1.innerHTML = Terning1
+            }
+            if (Terning2 == Terning3 || Terning2 == Terning4 || Terning2 == Terning5) {
+                Terning2 = Terning2 * 2
+                oneDuplicateP1.innerHTML = Terning2
+            }
+            if (Terning3 == Terning4 || Terning3 == Terning5) {
+                Terning3 = Terning3 * 2
+                oneDuplicateP1.innerHTML = Terning3
+            }
+            if (terning4 == Terning5) {
+                Terning4 = Terning4 * 2
+                oneDuplicateP1.innerHTML = Terning4
 
+            }
+
+        }
+*/
 
 
 
