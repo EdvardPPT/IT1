@@ -2,113 +2,200 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mine IT prosjekter</title>
-
-
-  <style>
-    body {
-      font-style: italic;
-      background-color: blanchedalmond;
-      background-image: url('https://media.tenor.com/GfSX-u7VGM4AAAAC/coding.gif');
-      background-repeat: repeat;
-    }
-
-    a {
-
-      margin: auto;
-      text-align: center;
-      border: 3px solid;
-      width: 150px;
-      height: 50px;
-      padding: 1px 10px;
-      background-color: rgba(255, 255, 255, 0.802);
-      margin-top: 20px;
-    }
-
-    a:visited {
-      color: #8412aa;
-    }
-
-    a:hover {
-      color: #40421c;
-      text-decoration-color: #cccccc;
-      border-radius: 20%;
-    
-    }
-
-    a:active {
-      text-decoration: none;
-    }
-
-    a:focus {
-      color: #61b5ff;
-      text-decoration-color: #cccccc;
-    }
-
-    .Lenker{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
-    }
-
-
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatzy</title>
+    <link rel="stylesheet" href="yatzy.css">
 
 </head>
 
 <body>
+    <div class="spillere">
+        <p class="Spiller1">Spiller 1</p>
 
-  <h1 style="color:rgb(164, 73, 73); margin: auto; text-align: center;"> Mine IT prosjekter </h1>
+    </div>
 
-<div class="Lenker">
-  <a href="./Innleveringsoppgave IT1 KAP2/index.html" style="background-color:darkgrey">Klikk her for å komme til  oppgaven</a>
+    <div class="spillere">
 
-  <a href="Lekeplass/CSS_lekeplass.html">Klikk her for lekeplass</a>
+        <p class="Spiller2">Spiller 2</p>
 
-  <a href="2FGrid/periodesystemet.html">Periodesystem</a>
+    </div>
 
-  <a href="3A/Oppgave4.html">Gjett passord</a>
+    <div class="spillere">
 
-  <a href="2E/olympiskeleker.html">Olympiske leker ringer</a>
+        <p class="Spiller3">Spiller 3</p>
 
-  <a href="3A/kalkulator.html">Enkel kalkulator</a>
-  
-  <a href="3C/grensesnitt.html">Trekk et lodd</a>
+    </div>
 
-  <a href="Timeplan/timeplan.html">Timeplan</a>
+    <div class="hvem">
 
-  <a href="3D funksjoner/oppgave1_funksjoner.html">funksjon hilsen</a>
+        <button type="button" class="butn" onClick="endreNavn()">
 
-  <a href="3D funksjoner/funksjoner2.html">Regn kvadratet ved å oppgi parameter</a>
+            Endre navn
 
-  <a href="3D funksjoner/oppgave3_funksjoner.html">Oppgave 3</a>
+        </button>
 
-  <a href="3D funksjoner/oppgave4_funksjoner.html">Gangetabellen</a>
-  
-  <a href="3D funksjoner/oppgave5_funksjoner.html">Areal rektangel</a>
-  
-  <a href="3D funksjoner/oppgave6_funksjoner.html">Oppgave 6</a>
-
-  <a href="3D funksjoner/oppgave7_funksjoner.html">Oppgave 7</a>
-  
-  <a href="3D funksjoner/yatzyFørsteDraft.html">Yatzy</a>
-
-  <a href="">tomt </a>
-
-  <a href="">tomt</a>
-
-  <a href="">tomt</a>
-
-  <a href="">tomt</a>
-  
-  <a href="">tomt</a>
+    </div>
 
 
-</div>
+    <button id="btnTerning1">0</button>
+    <button id="btnTerning2">0</button>
+    <button id="btnTerning3">0</button>
+    <button id="btnTerning4">0</button>
+    <button id="btnTerning5">0</button>
+    <br>
+    <input id="HoldT1" type="checkbox">
+    <input id="HoldT2" type="checkbox">
+    <input id="HoldT3" type="checkbox">
+    <input id="HoldT4" type="checkbox">
+    <input id="HoldT5" type="checkbox">
+
+    <button id="btnKastAlle">Kast alle</button>
 
 
+    <div id="posisjonert">
+        <h1>Spillregler</h1>
+        <br>
+        <p>Det er tre kast per person i en runde. Du får lov til å spare på terninger. Etter det tredje
+            kastet trykker du på kollonen som tilhører "spiller kollonen" din.</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4">yatzy</th>
+            </tr>
+            <tr>
+                <th>spillere</th>
+                <th class="Spiller1">P1</th>
+                <th class="Spiller2">P2</th>
+                <th class="Spiller1">P3</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Enere</td>
+                <td id="tdP1Enere"></td>
+                <td id="tdP2Enere"></td>
+                <td id="tdP3Enere"></td>
+            </tr>
+
+            <tr>
+                <td>Toere</td>
+                <td id="tdP1Toere"></td>
+                <td id="tdP2Toere"></td>
+                <td id="tdP3Toere"></td>
+            </tr>
+
+            <tr>
+                <td>Treere</td>
+                <td id="tdP1Treere"></td>
+                <td id="tdP2Treere"></td>
+                <td id="tdP3Treere"></td>
+            </tr>
+
+            <tr>
+                <td>Firere</td>
+                <td id="tdP1Firere"></td>
+                <td id="tdP2Firere"></td>
+                <td id="tdP3Firere"></td>
+            </tr>
+
+            <tr>
+                <td>Femere</td>
+                <td id="tdP1Femere"></td>
+                <td id="tdP2Femere"></td>
+                <td id="tdP3Femere"></td>
+            </tr>
+
+            <tr>
+                <td>Seksere</td>
+                <td id="tdP1Seksere"></td>
+                <td id="tdP2Seksere"></td>
+                <td id="tdP3Seksere"></td>
+            </tr>
+
+            <tr>
+                <td>Sum</td>
+                <td id="tdspiller1Sum"></td>
+                <td id="tdspiller2Sum"></td>
+                <td id="tdspiller3Sum"></td>
+            </tr>
+
+            <tr>
+                <td>Bonus</td>
+                <td id="tdBonusTabellP1"></td>
+                <td id="tdBonusTabellP2"></td>
+                <td id="tdBonusTabellP3"></td>
+            </tr>
+
+            <tr>
+                <td>Ett par</td>
+                <td id="tdOneDuplicateP1"></td>
+                <td id="tdOneDuplicateP2"></td>
+                <td id="tdOneDuplicateP3"></td>
+            </tr>
+
+            <tr>
+                <td>To par</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Tre like</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Liten straight</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Stor straight</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Hus</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Sjanse</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Yatzy</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Total sum</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <script src="yatzy.js"></script>
 </body>
-
 </html>
