@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btnTerning1Enere">Kast</button>
+<button id="btnTerning2Enere">Kast</button>
+<button id="btnTerning3Enere">Kast</button>
+<input id="" type="checkbox" checked="true">
+
+<button id="btnKastAlle">Kast alle</button>
+
+   <script>
+    btnTerning1Enere = document.getElementById("btnTerning1Enere");
+    btnTerning2Enere = document.getElementById("btnTerning2Enere");
+    btnTerning3Enere = document.getElementById("btnTerning3Enere");
+    btnKastalle = document.getElementById("btnKastAlle")
+
+    function kastAlle(){
+        btnKastAlle.innerHTML= Terning1Enere
+        btnDiceRoll.innerHTML= kastTerning1 +" "+ kastTerning2 +" "+ kastTerning3
+
+    function kastTerning1(){
+        let Terning1Enere = parseInt(Math.random()*6) + 1
+        btnTerning1Enere.innerHTML= Terning1Enere
+       }
+      btnTerning1Enere.onclick=kastTerning1;
+    
+       function kastTerning2(){
+        let Terning2Enere = parseInt(Math.random()*6) + 1
+        btnTerning2Enere.innerHTML = Terning2Enere
+       }
+       btnTerning2Enere.onclick=kastTerning2;
+    
+       function kastTerning3(){
+        let Terning3Enere = parseInt(Math.random()*6) + 1
+        btnTerning3Enere.innerHTML = Terning3Enere
+       }
+       btnTerning3Enere.onclick=kastTerning3;
+
+       
+    }
+    btnKastAlle.onclick = kastTerning1 + kastTerning2 + kastTerning3;
+
+    </script>
+</body>
+</html>
