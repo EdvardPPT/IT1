@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            position: absolute;
+            background-color: rgb(127, 202, 255);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <audio id="blippLyd" src="../Lydmappe/mixkit-soap-bubble-sound-2925 (1) (online-audio-converter.com).mp3"></audio>
+    <input id="farge" type="color">
+    <h1 id="poengElement"> Poeng</h1>
+    <script>
+        var blippLyd = document.getElementById("blippLyd");
+        var ny = true;
+        var poeng = 0;
+        var fjern = function (evt) {
+            evt.stopPropagation();
+            if (!ny) {
+                var minAnim = evt.target.animate([{ transform: "scale(1)" }, { transform: "scale(0.0000000000000000000001)" }], 500);
+                minAnim.onfinish = function () {
+                    document.body.removeChild(evt.target);
+                    blippLyd.play();
+                }
+            }
+            ny = false;
+        }
+
+        var farge = document.getElementById("farge")
+        window.onclick = function (evt) {
+            var mittElement = document.createElement("div");
+            ny = true;
+            mittElement.style.top = evt.clientY - 25 + "px";
+            mittElement.style.left = evt.clientX - 25 + "px";
+            mittElement.style.backgroundColor = farge.value;
+            mittElement.onmouseover = fjern;
+            document.body.appendChild(mittElement);
+
+        }
+
+        farge.onclick = function (evt) {
+            evt.stopPropagation();
+        }
+
+
+        /*evt-parameteren er handling*/
+
+
+    </script>
+
+
+
+</body>
+
+</html>
