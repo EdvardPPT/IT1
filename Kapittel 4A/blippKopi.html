@@ -29,6 +29,7 @@
         var ny = true;
         let poengElementEl = document.getElementById("poengElement") ;
         var antallPoeng = 0;
+        var farge = document.getElementById("farge")
 
         
 
@@ -42,7 +43,7 @@
         var fjern = function (evt) {
             evt.stopPropagation();
             if (!ny) {
-                var minAnim = evt.target.animate([{ transform: "scale(1)" }, { transform: "scale(0.0000000000000000000001)" }], 500);
+                var minAnim = evt.target.animate([{ transform: "scale(1)" }, { transform: "scale(0.0000000000000000000001)" }], 300);
                 minAnim.onfinish = function () {
                     document.body.removeChild(evt.target);
                     blippLyd.play();
@@ -50,8 +51,7 @@
             }
             ny = false;
         }
-
-        var farge = document.getElementById("farge")
+        
         function a(evt) {
             var mittElement = document.createElement("div");
             mittElement.addEventListener("click", skrivPoeng);
@@ -64,7 +64,7 @@
             function remove(){
                 document.body.removeChild(mittElement)
             }
-            setInterval(remove, 1500)
+            setInterval(remove, 1250)
         }
         setInterval(a, 500)
         
