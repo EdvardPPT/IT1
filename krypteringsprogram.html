@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASCII-kryptering</title>
+</head>
+<body>
+    <h1>ASCII-kryptering</h1>
+    <p>NB:Bruk bare store bokstaver i inputfeltene</p>
+    <label for="Teks">Tekst:</label>
+    <input type="text" id="textInp"><br>
+    <label for="Forskyving">Forskyvning:</label>
+    <input type="number" id="shiftInp"><br>
+    <button id="Kryptering" onclick="encryptText()">Krypter</button>
+    <button id="Dekryptering" onclick="decryptText()">Dekrypter</button><br>
+    <label for="result">Resultat:</label>
+    <input type="text" id="result">
+
+    
+    <script>
+        let KrypteringEl = document.getElementById("Kryptering");
+        let DekrypteringEl = document.getElementById("Dekryptering");
+        
+
+
+        function encryptText() {
+            // Dette henter tekst skrevet i tekst og forskyvings inputfeltet 
+            var ord = document.getElementById("textInp").value;
+            var shift = parseInt(document.getElementById("shiftInp").value);
+
+            //Denne variabelen vil vi bruke i funksjonen, og som vi kommer til å bruke som output etter vi kjører denne funksjonen. Foreløpig er det bare tomt fordi det skal hente verdien klienten setter inn i input feltene for å da kryptere teksten.
+            var encryptedTextEl = "";
+
+
+                //dette er en for løkke som vil kjøre for hver bokstav av teksten vi setter inn i inputfeltet.
+            for (var i = 0; i < ord.length; i++) {
+                //bruker char der det er en index, altså en bokstav av teksten vi setter inn
+                var char = ord[i];
+                // Sjekker om tegnet er et bokstav, om så kjører if løkka.
+                if (char.match()) {
+                    // Finn ASCII-verdien for tegnet
+                    var asciiValue = char.charCodeAt(0);
+                    // Variabelen er en forskyving som hver index, eller bokstav kommer til å få hver gang den kjører. Vi ønsker å bruke alfabetet med store bokstaver, derfor starter vi med 65 som er A i ASCII tegnsettet. Ettersom programmet har tatt differansen også addert forskyvingsverdien bruker vi modulus for 26. resten vi får blir addert med 65 for å gi indeksen et ny tegn ifølge ASCII tegnsettet.
+                    var shiftedAsciiValue = (asciiValue - 65 + shift) % 26 + 65;
+                    // Variabelen konverter tilbake fra tegn og skriver ut den krypterte teksten, og gir encrypted text El en ny verdi. Bruker += for å gjøre slik at hver gang løkka kjøres vil encryptedTextEl motta hvert bokstav kryptert.
+                    encryptedTextEl += String.fromCharCode(shiftedAsciiValue);
+                } 
+            }
+
+            // Viser den krypterte teksten i en seperat inputfelt nedert i dokumentet.
+            document.getElementById("result").value = encryptedTextEl;
+        }
+        
+
+        function decryptText() {
+            // Henter tekst og forskyvningsverdi fra input-feltene
+            var ord = document.getElementById("textInp").value;
+            var shift = parseInt(document.getElementById("shiftInp").value);
+
+            var decryptedTextEl = "";
+
+            for (var i = 0; i < ord.length; i++) {
+                var char = ord[i];
+                if (char.match()) {
+                    // Finn ASCII-verdien for tegnet
+                    var asciiValue = char.charCodeAt(0);
+                    // Dette gjør omtrent det samme som i ecryptText(), istedet tok jeg bare minus shift fordi man ønsker å dekryptere koden med å forskyve tilbake
+                    var shiftedAsciiValue = (asciiValue - 65 - shift + 26) % 26 + 65;
+                    // Variabelen konverter tilbake fra tegn og skriver ut den krypterte teksten
+                    decryptedTextEl += String.fromCharCode(shiftedAsciiValue);
+                } 
+            }
+
+            // Vis den dekrypterte teksten
+            document.getElementById("result").value = decryptedTextEl;
+        }
+    </script>
+</body>
+</html>
